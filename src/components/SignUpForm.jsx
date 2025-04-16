@@ -18,7 +18,7 @@ function SignUpForm() {
     console.log("SignUpForm:", formData);
     setFormData({ Username: "", Email: "", phoneNo: "", password: "" });
   };
-
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">

@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useRef, useState} from "react";
 import Navbar from "../Header/Navbar";
 
 
 function Upload() {
+  const fileInputRef = useRef([])
+  const [selectedFiles, setSelectedFiles] =useState([])
+
+  const handleBrowsClick = () =>{
+    fileInputRef.current.click();
+  }
+
+  const handleChange = (e) =>{
+    const filesArray = Array.from( e.target.files)
+    console.log("selectedFiles", filesArray)
+    setSelectedFiles(filesArray)
+  }
   return (
     <div>
     <Navbar/>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <div className=" flex  flex-col text-center mb-5 mt-20">
+    <div className="flex flex-col items-center justify-center bg-white py-10">
+      <div className=" flex flex-col text-center mb-5 mt-20">
         <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold p-4 text-sky-600 drop-shadow-lg">
           Easy Document Printing
         </h1>
@@ -16,10 +28,12 @@ function Upload() {
           <br />
           and get your prints from the nearest location.
         </p>
+      </div >
       </div>
-      <div className="border-dotted border-4 border-sky-400 rounded-xl w-80 h-50 max-w-lg z-10 justify-items-center center text-center mt-20 mb-40 ml-3">
-        <div className="text-shadow-black text-center justify-items-center">
-          <div className="text-shadow-black text-center justify-items-center py-4">
+      <div className="flex">
+        <div className="border-dotted border-2  border-sky-400 rounded-xl w-80 h-50 max-w-lg z-10 justify-items-center center text-center mt-20 mb-40 mr-100 bg-white">
+          <div className="text-shadow-black text-center justify-items-center">
+            <div className="text-shadow-black text-center justify-items-center py-4">
         <svg xmlns="http://www.w3.org/2000/svg" 
         fill="none" 
         viewBox="0 0 24 24" 
@@ -40,6 +54,7 @@ function Upload() {
             <div className="flex justify-center gap-4 py-10">
             <button 
             type="button"
+            onClick={handleBrowsClick}
             className="flex items-center px-3 py-2 gap-2 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100">
               <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -57,6 +72,7 @@ function Upload() {
               <span className="text-gray-700 text-sm font-medium">
               Browse Files
               </span>
+              <input type="file" className="hidden" multiple accept=".pdf" />
               </button>
               <button
               type="button"
@@ -81,11 +97,44 @@ function Upload() {
                   </span>
                   </button>
                   </div>
+                  <input
+                  type="file"
+                  accept=".jpg,.png,.pdf"
+                  multiple
+                  ref={fileInputRef}
+                  onChange={handleChange}
+                  className="hidden"
+                  />
+                </div>
+                {selectedFiles.length>0 && (
+                  <div className="w-full max-w-md ml-96">
+                    <h2 className="text-sm font-semibold text-gray-700 mb-2">
+                      Selected Files:
+                      </h2>
+                      <ul className="space-y-2">
+                        {selectedFiles.map((files, index)=>(
+                        <li key={index} className="bg-white border rounded-md px-4 py-2 shadow-sm">
+                          <p className="text-gray-800 font-medium">{files.name}    
+                          </p>
+                          <p className="text-gray-500 text-sm">
+                            type:{files.type || "unknow"} | Size: {(files.size/1024).toFixed(2)}KB
+                          </p>
+                          {files.type.startsWith("image/") && (
+                            <img
+                            src={URL.createObjectURL(files)}
+                            alt={files.name}
+                            className="mt-2 w-20 h-10 object-cover"
+                            />
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 </div>
               </div>
             </div>
-          </div>
-  );
+        )
 }
 
 export default Upload;
