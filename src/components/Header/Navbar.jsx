@@ -2,7 +2,7 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="w-full h-full absolute bg-gradient-to-r from-blue-100 to-purple-200">
+    <div className="w-full h-full">
       <header className="flex justify-between items-center text-black bg-white drop-shadow-md py-4 px-2 md:px-12">
         <div className="flex items-center">
           <img
