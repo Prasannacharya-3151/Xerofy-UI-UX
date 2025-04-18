@@ -1,52 +1,49 @@
-import React, {useRef, useState} from "react";
+import React, {useState, useRef} from "react";
 import Navbar from "../Header/Navbar";
 
+function Upload(){
+  const fileInputRef = useRef(null)
+  const cameraInputRef = useRef(null)
+  const [selectedFiles, setSelectedFiles] = useState([])
 
-function Upload() {
-  const fileInputRef = useRef([])
-  const [selectedFiles, setSelectedFiles] =useState([])
+  const handleBrowsClick =()=>{
+    fileInputRef.current?.click();
+  }
 
-  const handleBrowsClick = () =>{
-    fileInputRef.current.click();
+  const handleCameraClick = ()=>{
+    cameraInputRef.current.click();
   }
 
   const handleChange = (e) =>{
-    const filesArray = Array.from( e.target.files)
-    console.log("selectedFiles", filesArray)
-    setSelectedFiles(filesArray)
+    const fileArray = Array.from(e.target.files)
+    console.log("selecteFiles:", fileArray)
+    setSelectedFiles(fileArray)
   }
-  return (
-    <div>
-    <Navbar/>
-    <div className="flex flex-col items-center justify-center bg-white py-10">
-      <div className=" flex flex-col text-center mb-5 mt-20">
-        <h1 className="text-3xl sm:text-4xl md:text-4xl font-bold p-4 text-sky-600 drop-shadow-lg">
-          Easy Document Printing
-        </h1>
-        <p className="text-black z-10 mt-xl text-sm font-bold">
+
+
+return (
+  <div>
+    <Navbar />
+  <div className="bg-gradient-to-r from-blue-100 to-purple-200 min-h-screen p-10">
+    <h1 className=" flex items-center justify-center text-3xl sm:text-4xl md:text-4xl font-bold p-4 text-sky-600 drop-shadow-lg">
+      Easy Document Printing
+    </h1>
+    <p className="flex items-center justify-center text-black z-10 mt-xl text-sm font-bold">
           Upload your files, choose your option,
           <br />
           and get your prints from the nearest location.
         </p>
-      </div >
-      </div>
-      <div className="flex">
-        <div className="border-dotted border-2  border-sky-400 rounded-xl w-80 h-50 max-w-lg z-10 justify-items-center center text-center mt-20 mb-40 mr-100 bg-white">
-          <div className="text-shadow-black text-center justify-items-center">
-            <div className="text-shadow-black text-center justify-items-center py-4">
-        <svg xmlns="http://www.w3.org/2000/svg" 
-        fill="none" 
-        viewBox="0 0 24 24" 
-        stroke-width="1.5" 
-        stroke="currentColor" 
-        class="size-6"
-        >
-          <path stroke-linecap="round" 
-          stroke-linejoin="round" 
-          d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
-          </svg>
+        <div className="flex item-center justify-center space-x-5 py-40">
+        {/* Left Box */}
+
+        <div className="w-80 h-50 bg-blue-200 p-6 rounded-xl shadow-md">
+        <div className="text-shadow-black text-center justify-items-center mb-2">
+        
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+</svg>
           </div>
-          <p className="text-sm text-gray-700 font-medium">
+          <p className="text-sm text-gray-700 font-medium text-center">
             Drag & drop files here
             < br/>
             Support for JPG, PNG, GIF and PDF files
@@ -55,7 +52,7 @@ function Upload() {
             <button 
             type="button"
             onClick={handleBrowsClick}
-            className="flex items-center px-3 py-2 gap-2 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100">
+            className="flex items-center px-1 py-2 gap-2 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100">
               <svg 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
@@ -76,6 +73,7 @@ function Upload() {
               </button>
               <button
               type="button"
+              onClick={handleCameraClick}
               className="flex items-center px-3 py-2 gap-2 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100">
                 <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -97,44 +95,62 @@ function Upload() {
                   </span>
                   </button>
                   </div>
-                  <input
+                  <input 
                   type="file"
-                  accept=".jpg,.png,.pdf"
+                  accept="all"
                   multiple
                   ref={fileInputRef}
                   onChange={handleChange}
                   className="hidden"
                   />
-                </div>
-                {selectedFiles.length>0 && (
-                  <div className="w-full max-w-md ml-96">
-                    <h2 className="text-sm font-semibold text-gray-700 mb-2">
-                      Selected Files:
-                      </h2>
-                      <ul className="space-y-2">
-                        {selectedFiles.map((files, index)=>(
-                        <li key={index} className="bg-white border rounded-md px-4 py-2 shadow-sm">
-                          <p className="text-gray-800 font-medium">{files.name}    
-                          </p>
-                          <p className="text-gray-500 text-sm">
-                            type:{files.type || "unknow"} | Size: {(files.size/1024).toFixed(2)}KB
-                          </p>
-                          {files.type.startsWith("image/") && (
-                            <img
-                            src={URL.createObjectURL(files)}
-                            alt={files.name}
-                            className="mt-2 w-20 h-10 object-cover"
-                            />
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                </div>
-              </div>
-            </div>
-        )
+                  <input
+                  type="camera"
+                  accept="image/"
+                  capture="user"
+                  onChange={handleChange}
+                  ref={cameraInputRef}
+                  className="hidden"
+                  /> 
+        </div>
+      
+
+
+       {/* Right Box */}
+<div className="w-80 h-50 bg-green-200 p-6 rounded-xl shadow-md overflow-y-auto">
+  <h2 className="text-md font-semibold text-gray-700 mb-2 text-center">
+    Selected Files:
+  </h2>
+
+  {selectedFiles.length === 0 ? (
+    <p className="text-sm text-gray-600 text-center">No files selected.</p>
+  ) : (
+    <ul className="space-y-2">
+      {selectedFiles.map((file, index) => (
+        <li
+          key={index}
+          className="bg-white border rounded-md px-4 py-2 shadow-sm"
+        >
+          <p className="text-gray-800 font-medium truncate">{file.name}</p>
+          <p className="text-gray-500 text-sm">
+            type: {file.type || "unknown"} | size: {(file.size / 1024).toFixed(2)} KB
+          </p>
+          {file.type.startsWith("image/") && (
+            <img
+              src={URL.createObjectURL(file)}
+              alt={file.name}
+              className="mt-2 w-full h-24 object-cover rounded"
+            />
+          )}
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
+      </div>
+  </div>
+</div>
+);
 }
 
 export default Upload;
