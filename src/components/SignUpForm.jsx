@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ function SignUpForm() {
     phoneNo: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const add = (e) => {
     e.preventDefault();
@@ -17,11 +19,12 @@ function SignUpForm() {
     }
     console.log("SignUpForm:", formData);
     setFormData({ Username: "", Email: "", phoneNo: "", password: "" });
+    navigate("/login")
   };
   
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200">
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 px-4">
+      <div className="w-full max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
         <h1 className="text-3xl font-bold text-center p-4 mb-6 text-indigo-600 text-shadow-lg/30 ...">
           Sign Up
         </h1>
@@ -96,9 +99,9 @@ function SignUpForm() {
           <div className="text-center">
             <h3>
               Already you have an account?{""} {""}
-              <a href="/signin" className="text-indigo-600 hover:underline">
+              <Link to="/login" className="text-indigo-600 hover:underline">
                 Login
-              </a>
+              </Link>
             </h3>
             <div className="flex items-center my-6">
                     <hr className="flex-grow border-t border-gray-600" />
@@ -110,7 +113,7 @@ function SignUpForm() {
             type="button"
             className="w-full relative flex justify-center items-center mt-3 my-9 px-5 py-2 gap-3 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100"
             >
-            <div className="absolute left-4 w-5 h-5">
+            <div className="absolute left-4 w-6 h-6">
             <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
             alt="Google-icon"
