@@ -25,10 +25,10 @@ function SignUpForm() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 px-4">
       <div className="w-full max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
-        <h1 className="text-3xl font-bold text-center p-4 mb-6 text-indigo-600 text-shadow-lg/30 ...">
+        <h1 className="text-2xl md:text-3xl font-bold text-center p-4 mb-6 text-indigo-600">
           Sign Up
         </h1>
-        <form className="space-y-2" onSubmit={add}>
+        <form className="space-y-4" onSubmit={add}>
           <div className="flex flex-col">
             <label className="block mb-1 text-gray-700">
               Username
@@ -41,7 +41,7 @@ function SignUpForm() {
               onChange={(e) =>
                 setFormData({ ...formData, Username: e.target.value })
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm transition-all duration-300 ease-in-out"
             />
           </div>
 
@@ -50,14 +50,14 @@ function SignUpForm() {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               name="Email"
               placeholder="Email"
               value={formData.Email}
               onChange={(e) =>
                 setFormData({ ...formData, Email: e.target.value })
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm transition-all duration-300 ease-in-out"
             />
           </div>
           <div className="flex flex-col">
@@ -72,7 +72,7 @@ function SignUpForm() {
               onChange={(e) =>
                 setFormData({ ...formData, phoneNo: e.target.value })
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm transition-all duration-300 ease-in-out"
             />
           </div>
           <div className="flex flex-col">
@@ -87,18 +87,18 @@ function SignUpForm() {
               onChange={(e) =>
                 setFormData({ ...formData, password: e.target.value })
               }
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm transition-all duration-300 ease-in-out"
             />
           </div>
           <button
-            className="block mb-5 w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-300"
+            className="block w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-300"
             type="submit"
           >
             Sign Up
           </button>
           <div className="text-center">
             <h3>
-              Already you have an account?{""} {""}
+              Already you have an account?{" "}
               <Link to="/login" className="text-indigo-600 hover:underline">
                 Login
               </Link>
@@ -111,9 +111,9 @@ function SignUpForm() {
             <div>
             <button
             type="button"
-            className="w-full relative flex justify-center items-center mt-3 my-9 px-5 py-2 gap-3 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100"
+            className="w-full relative flex justify-center items-center mt-3 my-9 px-5 py-2 gap-3 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100 hover:scale-105 transform duration-300"
             >
-            <div className="absolute left-4 w-6 h-6">
+            <div className="h-6 w-6 object-contain">
             <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png"
             alt="Google-icon"

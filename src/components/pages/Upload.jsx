@@ -20,6 +20,10 @@ function Upload(){
     setSelectedFiles(fileArray)
   }
 
+  const handleDelete = (fileToDelete) =>{
+    setSelectedFiles((prevfiles)=> prevfiles.filter((file)=> file !== fileToDelete))
+  }
+
 
 return (
   <div>
@@ -132,6 +136,23 @@ return (
         >
           <p className="text-gray-800 font-medium truncate">{file.name}</p>
           <p className="text-gray-500 text-sm">
+            <button
+            onClick={() =>handleDelete(file)}
+            className="absolute mx-60 top-112 text-red-500 hover:text-red-700 transition-all duration-300 ease-in-out"
+            >
+              
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              viewBox="0 0 24 24" 
+              fill="currentColor" 
+              class="size-6">
+                <path fill-rule="evenodd" 
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" 
+                clip-rule="evenodd" />
+                </svg>
+                
+
+            </button>
             type: {file.type || "unknown"} | size: {(file.size / 1024).toFixed(2)} KB
           </p>
           {file.type.startsWith("image/") && (

@@ -24,10 +24,10 @@ function LoginForm(){
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 px-4">
             <div className="w-full max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
-                <h1 className="text-3xl font-bold text-center p-4 mb-6 text-indigo-600 text-shadow-lg/30 ..">
+                <h1 className="text-3xl font-bold text-center text-indigo-600">
                     Login
                 </h1>
-                <p className="text-2xl font-bold text-center -mt-8 mb-6 text-indigo-600 text-shadow-lg/30 ..">
+                <p className="text-lg text-center mb-6 text-gray-500">
                 Welcome back!
                 </p>
                 <form onSubmit={add} className="space-y-6">
@@ -41,7 +41,7 @@ function LoginForm(){
                             onChange={(e) =>
                                 setUserProfile({ ...userProfile, Email: e.target.value })
                             }
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 ease-in-out"
                         />
                     </div>
                     <div>
@@ -54,11 +54,11 @@ function LoginForm(){
                             onChange={(e) =>
                                 setUserProfile({ ...userProfile, Password: e.target.value })
                             }
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 ease-in-out"
                         />
                     </div>
-                    <div className="-mt-6 text-end text-xs">
-                    <a href="#" className="text-indigo-500 hover:underline">
+                    <div className="text-right text-sm">
+                    <a href="#" className="text-indigo-500 hover:underline font-medium">
                     Forgot Password?
                     </a>
                     </div>
@@ -83,9 +83,9 @@ function LoginForm(){
                     </div>
                     <button 
                     type="button" 
-                    className="w-full relative flex justify-center items-center mt-3 my-9 px-5 py-2 gap-3 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100"
+                    className="w-full relative flex justify-center items-center mt-3 my-9 px-5 py-2 gap-3 border border-gray-300 rounded-md shadow-sm transition hover:bg-gray-100 hover:scale-105 transform duration-300"
                     >
-                        <div className="absolute left-4 w-6 h-6">
+                        <div className="h-6 w-6 object-contain">
                             <img 
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" 
                             alt="Google-icon"
