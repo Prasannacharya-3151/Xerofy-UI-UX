@@ -1,10 +1,13 @@
 import React, {useState, useRef} from "react";
 import Navbar from "../Header/Navbar";
+import {useNavigate, Link } from "react-router-dom";
 
 function Upload(){
   const fileInputRef = useRef(null)
   const cameraInputRef = useRef(null)
   const [selectedFiles, setSelectedFiles] = useState([])
+
+  const navigate = useNavigate()
 
   const handleBrowsClick =()=>{
     fileInputRef.current?.click();
@@ -194,7 +197,20 @@ return (
 </div>
 
       </div>
+      <div className="flex justify-between mt-1">
+                                <button
+                                
+                                className="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700">
+                                    Back
+                                    </button>
+                                    <button 
+                                    onClick={()=> navigate("/option")}
+                                    className="px-4 py-2 rounded bg-blue-400 hover:bg-blue-500 text-white">
+                                        Next
+                                        </button>
+                                        </div>
   </div>
+  
 </div>
 );
 }

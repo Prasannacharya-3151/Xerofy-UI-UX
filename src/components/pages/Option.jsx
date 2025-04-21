@@ -1,10 +1,16 @@
 import React, {useState} from "react";
 import Navbar from "../Header/Navbar";
+import { useNavigate, Link } from "react-router-dom";
 
 function Option(){
 
-    const [selectedSide, setSelectedSide] = useState("single")
+    const [selectedSide, setSelectedSide] = useState("false")
     console.log("selectedSide", selectedSide)
+
+    const [colorOption, setColorOption] = useState("")
+    console.log("colorOption", colorOption)
+
+    const navigate = useNavigate();
 
     return(
         <div className="min-h-screen bg-gray-100">
@@ -89,7 +95,9 @@ function Option(){
                         <div>
                         <h3 className="text-xs px-3 font-semibold text-gray-700 mb-1 mt-5">Color Options</h3>
                         <div className="grid grid-cols-2 gap-5">
-                            <div className="px-3 py-3 border rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                            <div 
+                            onClick={()=> setColorOption("Black")}
+                            className={`px-3 py-3 border rounded-xl border-gray-300 ${colorOption === "Black" ? "bg-blue-50 border-blue-700":""}`}>
                                 <div className="flex items-center gap-2">
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -106,7 +114,9 @@ function Option(){
                                 <span className="font-medium text-gray-800">Black & White</span>
                                 </div>
                                 </div>
-                                <div className="px-3 py-3 border rounded-xl corsor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                                <div 
+                                onClick={()=> setColorOption("color")}
+                                className={`px-3 py-3 border rounded-xl border-gray-300 ${colorOption === "color" ? "border-blue-500 bg-blue-50":""}`}>
                                     <div className="flex items-center gap-3">
                                         <div className="h-5 w-5">
                                     <img src="https://cdn-icons-png.flaticon.com/512/881/881419.png" />
@@ -188,20 +198,21 @@ function Option(){
                             <label className="text-gray-800 font-semibold text-lg">Number of Copies</label>
                             <select
                             className="border border-gray-300 bg-gray-50 text-gray-700 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200">
-                                <option>Copies 1</option>
-                                <option>Copies 2</option>
-                                <option>Copies 3</option>
-                                <option>Copies 4</option>
-                                <option>Copies 5</option>
-                                <option>Copies 6</option>
-                                <option>Copies 7</option>
-                                <option>Copies 8</option>
-                                <option>Copies 9</option>
-                                <option>Copies 10</option>
+                                <option>1 Copy</option>
+                                <option>2 Copies</option>
+                                <option>3 Copies</option>
+                                <option>4 Copies</option>
+                                <option>5 Copies</option>
+                                <option>6 Copies</option>
+                                <option>7 Copies</option>
+                                <option>8 Copies</option>
+                                <option>9 Copies</option>
+                                <option>10 Copies</option>
                             </select>
                             </div>
                             <div className="flex justify-between mt-6">
                                 <button
+                                onClick={()=> navigate(-1)}
                                 className="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700">
                                     Back
                                     </button>
