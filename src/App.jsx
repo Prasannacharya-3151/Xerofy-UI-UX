@@ -3,6 +3,7 @@ import { BrowserRouter,Routes ,Route } from "react-router-dom";
 import SignUpForm from "./components/SignUpForm";
 import LoginForm from "./components/LoginForm";
 import Upload from "./components/Pages/Upload";
+import Option from "./components/pages/Option";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/signup" element={<SignUpForm />}/>
         <Route path="/login" element={<LoginForm />}/>
         <Route path="/upload" element={<Upload />}/>
+        <Route path="/option" element={<Option />}/>
        </Routes>
       </BrowserRouter>
 )

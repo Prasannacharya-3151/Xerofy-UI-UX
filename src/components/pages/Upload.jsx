@@ -26,21 +26,46 @@ function Upload(){
 
 
 return (
-  <div>
+  <div className="bg-gray-100 min-h-screen">
     <Navbar />
-  <div className="bg-gradient-to-r from-blue-100 to-purple-200 min-h-screen p-10">
-    <h1 className=" flex items-center justify-center text-3xl sm:text-4xl md:text-4xl font-bold p-4 text-sky-600 drop-shadow-lg">
+  <div className="max-w-2xl m-auto p-6 bg-white rounded-xl shadow-lg mt-6">
+    <h1 className="mb-2 font-bold text-center text-sky-600 text-2xl">
       Easy Document Printing
     </h1>
-    <p className="flex items-center justify-center text-black z-10 mt-xl text-sm font-bold">
+    <p className="text-sm text-center text-gray-600">
           Upload your files, choose your option,
-          <br />
           and get your prints from the nearest location.
         </p>
-        <div className="flex item-center justify-center space-x-5 py-40">
+        {/* circle 1 */}
+        <div className="flex justify-center gap-4 p-4 mt-3">
+                        <div className="flex flex-col items-center">
+                            <div className="rounded-full bg-blue-400 h-12 w-12 flex items-center justify-center shadow-lg text-white font-bold">1</div>
+                            <p className="mt-2 text-xs text-gray-600">Upload</p>
+                        </div>
+
+                    {/* /circle 2 */}
+                        <div className="flex flex-col items-center">
+                        <div className="rounded-full border border-gray-100 h-12 w-12 flex items-center justify-center shadow-lg font-bold text-gray-600">2</div>
+                        <p className="mt-2 text-xs text-gray-600">Option</p>
+                        </div>
+
+                        {/* /circle 3 */}
+                        <div className="flex flex-col items-center">
+                        <div className="rounded-full border border-gray-100 h-12 w-12 flex items-center justify-center shadow-lg font-bold text-gray-600">3</div>
+                        <p className="mt-2 text-xs text-gray-600">Location</p>
+                        </div>
+
+                        {/* / circle3 */}
+                        <div className="flex flex-col items-center">
+                        <div className="rounded-full border border-gray-100 h-12 w-12 flex items-center justify-center shadow-lg font-bold text-gray-600">4</div>
+                        <p className="mt-2 text-xs text-gray-600">Payment</p>
+                        </div>
+                    </div>
+                    <h2 className="text-center mt-3 font-bold text-xs">Upload Your Files</h2>
+        <div className="sm:flex item-center justify-center space-x-5 py-30">
         {/* Left Box */}
 
-        <div className="w-80 h-50 bg-blue-200 p-6 rounded-xl shadow-md">
+        <div className="w-80 h-50 bg-blue-200 p-4 rounded-xl shadow-md">
         <div className="text-shadow-black text-center justify-items-center mb-2">
         
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -120,7 +145,7 @@ return (
 
 
        {/* Right Box */}
-<div className="w-80 h-50 bg-green-200 p-6 rounded-xl shadow-md overflow-y-auto">
+<div className="w-80 h-50 bg-green-200 p-6 rounded-xl shadow-md overflow-y-auto mt-5 sm:mt-0">
   <h2 className="text-md font-semibold text-gray-700 mb-2 text-center">
     Selected Files:
   </h2>
@@ -138,14 +163,14 @@ return (
           <p className="text-gray-500 text-sm">
             <button
             onClick={() =>handleDelete(file)}
-            className="absolute mx-60 top-112 text-red-500 hover:text-red-700 transition-all duration-300 ease-in-out"
+            className="text-red-500 z-10"
             >
               
               <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
+              viewBox="2 0 25 24" 
               fill="currentColor" 
-              class="size-6">
+              class="size-5">
                 <path fill-rule="evenodd" 
                 d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" 
                 clip-rule="evenodd" />
