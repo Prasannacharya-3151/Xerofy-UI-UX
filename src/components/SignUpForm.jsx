@@ -104,9 +104,9 @@ function SignUpForm() {
               </Link>
             </h3>
             <div className="flex items-center my-6">
-                    <hr className="flex-grow border-t border-gray-600" />
+                    <hr className="flex-grow border-t border-gray-300" />
                     <span className="mx-4 text-gray-400 text-sm">Or</span>
-                    <hr className="flex-grow border-t border-gray-600" />
+                    <hr className="flex-grow border-t border-gray-300" />
                     </div>
             <div>
             <button

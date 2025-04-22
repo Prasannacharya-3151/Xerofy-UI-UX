@@ -77,9 +77,9 @@ function LoginForm(){
                     </h3>
                     </div>
                     <div className="flex items-center my-6">
-                    <hr className="flex-grow border-t border-gray-600" />
+                    <hr className="flex-grow border-t border-gray-300" />
                     <span className="mx-4 text-gray-400 text-sm">Or</span>
-                    <hr className="flex-grow border-t border-gray-600" />
+                    <hr className="flex-grow border-t border-gray-300" />
                     </div>
                     <button 
                     type="button" 

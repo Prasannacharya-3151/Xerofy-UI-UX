@@ -43,7 +43,7 @@ return (
         <div className="flex justify-center gap-4 p-4 mt-3">
                         <div className="flex flex-col items-center">
                             <div className="rounded-full bg-blue-400 h-12 w-12 flex items-center justify-center shadow-lg text-white font-bold">1</div>
-                            <p className="mt-2 text-xs text-gray-600">Upload</p>
+                            <p className="mt-2 text-xs text-sky-600">Upload</p>
                         </div>
 
                     {/* /circle 2 */}
@@ -64,7 +64,7 @@ return (
                         <p className="mt-2 text-xs text-gray-600">Payment</p>
                         </div>
                     </div>
-                    <h2 className="text-center mt-3 font-bold text-xs">Upload Your Files</h2>
+                    <h2 className="text-center mt-3 font-semibold text-base text-gray-800">Please upload your printing files</h2>
         <div className="sm:flex item-center justify-center space-x-5 py-30">
         {/* Left Box */}
 

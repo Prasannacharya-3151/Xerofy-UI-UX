@@ -10,12 +10,17 @@ function Option(){
     const [colorOption, setColorOption] = useState("")
     console.log("colorOption", colorOption)
 
+    const [paperSize, setPaperSize] = useState("")
+    console.log("paperSize", paperSize)
+
     const navigate = useNavigate();
+
+
 
     return(
         <div className="min-h-screen bg-gray-100">
             <Navbar />
-            <div className="max-w-2xl m-auto p-6 bg-white rounded-xl shadow-lg mt-6">
+            <div className="max-w-2xl m-auto p-6 px-4 sm:px-6 bg-white rounded-xl shadow-lg mt-6">
                 <h1 className="mb-2 text-center font-bold text-2xl text-sky-600">
                     Easy Document Printing
                     </h1>
@@ -33,7 +38,7 @@ function Option(){
                     {/* /circle 2 */}
                         <div className="flex flex-col items-center">
                         <div className="rounded-full bg-blue-400 h-12 w-12 flex items-center justify-center shadow-lg text-white font-bold">2</div>
-                        <p className="mt-2 text-xs text-gray-600">Option</p>
+                        <p className="mt-2 text-xs text-sky-600">Option</p>
                         </div>
 
                         {/* /circle 3 */}
@@ -48,7 +53,7 @@ function Option(){
                         <p className="mt-2 text-xs text-gray-600">Payment</p>
                         </div>
                     </div>
-                    <h2 className="text-center mt-3 font-bold text-xs">Select Print Options</h2>
+                    <h2 className="text-center mt-3 font-semibold text-base text-gray-800">Choose Your Print Preferences</h2>
                     <div>
                         <h3 className="text-xs px-3 font-semibold text-gray-700 mb-1 mt-10">Printing Side</h3>
                         <div className="grid grid-cols-2 gap-5">
@@ -129,7 +134,9 @@ function Option(){
                         <div>
                         <h3 className="text-xs px-3 font-semibold text-gray-700 mb-1 mt-5">Paper Sizes</h3>
                         <div className="grid grid-cols-2 gap-5">
-                            <div className="px-3 py-3 border rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                            <div 
+                            onClick={()=> setPaperSize("fullpage")}
+                            className={`px-3 py-3 border rounded-xl border-gray-300 ${paperSize === "fullpage" ? "bg-blue-50 border-blue-500":""}`}>
                                 <div className="flex items-center gap-2">
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -146,7 +153,9 @@ function Option(){
                                 <span className="font-medium text-gray-800">Full Page</span>
                                 </div>
                                 </div>
-                                <div className="px-3 py-3 border rounded-xl corsor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                                <div 
+                                onClick={()=> setPaperSize("1/2")}
+                                className={`px-3 py-3 border rounded-xl border-gray-300 ${ paperSize === "1/2" ? "border-blue-500 bg-blue-50":""}`}>
                                     <div className="flex items-center gap-2">
                                         <div className="h-6 w-7">
                                             <img src="" alt="" />
@@ -158,7 +167,9 @@ function Option(){
                         </div>
                         <div>
                         <div className="grid grid-cols-2 gap-5 mt-3">
-                            <div className="px-3 py-3 border rounded-xl cursor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                            <div 
+                            onClick={()=> setPaperSize("1/3")}
+                            className={`px-3 py-3 border rounded-xl border-gray-300 ${ paperSize === "1/3" ? "border-blue-500 bg-blue-50":""}`}>
                                 <div className="flex items-center gap-2">
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
@@ -175,7 +186,9 @@ function Option(){
                                 <span className="font-medium text-gray-800">1/3 Page</span>
                                 </div>
                                 </div>
-                                <div className="px-3 py-3 border rounded-xl corsor-pointer hover:border-blue-500 hover:bg-blue-50 border-gray-300">
+                                <div 
+                                onClick={()=> setPaperSize("1/4")}
+                                className={`px-3 py-3 border rounded-xl border-gray-300 ${ paperSize === "1/4" ? "border-blue-500 bg-blue-50":""}`}>
                                     <div className="flex items-center gap-2">
                                     <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
@@ -217,7 +230,8 @@ function Option(){
                                     Back
                                     </button>
                                     <button 
-                                    className="px-4 py-2 rounded bg-blue-400 hover:bg-blue-500 text-white">
+                                    disable={!selectedSide || !colorOption || !paperSize}
+                                    className={`px-4 py-2 rounded text-white transition ${!selectedSide || !colorOption || !paperSize ? "bg-blue-200 cursor-not-allowed":"bg-blue-400 hover:bg-blue-500"}`}>
                                         Next
                                         </button>
                                         </div>
