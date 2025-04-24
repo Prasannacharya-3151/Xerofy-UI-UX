@@ -6,6 +6,8 @@ import Upload from "./components/Pages/Upload";
 import Option from "./components/pages/Option";
 import EnterEmailAndNumber from "./components/pages/ForgetPassword/EnterEmailAndNumber";
 import VerifyOtp from "./components/pages/ForgetPassword/VerifyOtp";
+import ResetPassword from "./components/pages/ForgetPassword/ResetPassword";
+import Location from "./components/pages/Location";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path="/option" element={<Option />}/>
         <Route path="/emailandnumber" element={<EnterEmailAndNumber/>}/>
         <Route path="/verifyotp" element={<VerifyOtp />}/>
+        <Route path="/resetpassword" element={<ResetPassword />}/>
+        <Route path="/location" element={<Location />}/>
        </Routes>
       </BrowserRouter>
 )

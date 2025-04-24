@@ -1,9 +1,12 @@
 import React, {useState} from "react";
-import Navbar from "../../Header/Navbar";
+import { useNavigate, Link} from "react-router-dom"
+import search from "../../../assets/search.png"
 
 function EnterEmailAndNumber(){
 
     const [email, setEmail]=useState("")
+
+    const navigate = useNavigate();
     
     const add = (e) => {
         e.preventDefault();
@@ -11,15 +14,19 @@ function EnterEmailAndNumber(){
             alert("Please enter a valid email address.");
             return
         }
+        console.log("email", email)
+        navigate("/verifyotp");
     }
 
-    console.log("email", email)
+   
+
+
 
     return(
         <div>
-            <Navbar />
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 px-4">
-            <div className="max-w-2xl max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
+            <div className="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-lg">
+                <img src={search} alt="search icon" className="h-20 w-20 mx-auto mb-4"></img>
                 <h1 className="text-2xl font-md text-indigo-600 mb-2">
                     Find your account
                 </h1>
@@ -27,7 +34,7 @@ function EnterEmailAndNumber(){
                 <p className="text-sm text-gray-500">Can't reset your password?</p>
                 <form className="space-y-1" onSubmit={add}>
                     <div>
-                        <label className="block mb-1 text-gray-700 mt-10">Email</label>
+                        <label className="block mb-1 text-gray-700 mt-5">Email</label>
                             <input
                             type="email"
                             name="email"

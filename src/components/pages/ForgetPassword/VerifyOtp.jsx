@@ -1,26 +1,36 @@
 import React, {useState} from "react"
-import Navbar from "../../Header/Navbar"
 import Email from "../../../assets/Email.png";
+import {useNavigate, Link } from "react-router-dom"
 
 function VerifyOtp(){
 
     const [code, setCode] = useState("");
 
+    const navigate = useNavigate()
+
     const add = (e) => {
         const input = e.target.value;
-        // Only allow numbers and max 6 digits
         if (/^\d{0,6}$/.test(input)) {
           setCode(input);
         }
+       
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        if (code.length !== 6) {
+          alert("Please enter a valid 6-digit code.");
+          return;
+        }
+        console.log("OTP Verified:", code);
+        navigate("/resetpassword");
       };
 
-      console.log("code", code);
+      
 
 
     return(
 
-        <div> 
-            <Navbar />
+        <div>
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-purple-200 px-4">
             <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
                 <h1 className="text-2xl font-md text-indigo-600 mb-2">Check your Email</h1>
@@ -29,7 +39,7 @@ function VerifyOtp(){
                 <img src={Email} alt="email icon" className="h-60 w-100 rounded-lg mt-2">
                 </img>
 
-                <form onChange={add}className="space-y-1">
+                <form onSubmit={handleSubmit} className="space-y-1">
                 <div>
                     <label className="block mb-1 text-gray-700 mt-10">OTP code</label>
                         <input

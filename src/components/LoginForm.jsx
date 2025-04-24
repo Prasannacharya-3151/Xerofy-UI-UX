@@ -58,9 +58,9 @@ function LoginForm(){
                         />
                     </div>
                     <div className="text-right text-sm">
-                    <a href="#" className="text-indigo-500 hover:underline font-medium">
+                    <Link to="/emailandnumber" className="text-indigo-500 hover:underline font-medium">
                     Forgot Password?
-                    </a>
+                    </Link>
                     </div>
                     <button
                         type="submit"
