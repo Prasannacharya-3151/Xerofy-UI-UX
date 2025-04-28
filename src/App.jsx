@@ -8,7 +8,9 @@ import EnterEmailAndNumber from "./components/pages/ForgetPassword/EnterEmailAnd
 import VerifyOtp from "./components/pages/ForgetPassword/VerifyOtp";
 import ResetPassword from "./components/pages/ForgetPassword/ResetPassword";
 import Location from "./components/pages/Location";
-import Payment from "./components/Payment";
+import Payment from "./components/pages/Payment";
+import Confirm from "./components/pages/Confirm";
+import OrderTracking from "./components/pages/OrderTracking";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/location" element={<Location />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/confirm" element={<Confirm />} />
+        <Route path={"/ordertracking"} element={<OrderTracking />} />
       </Routes>
     </BrowserRouter>
   );

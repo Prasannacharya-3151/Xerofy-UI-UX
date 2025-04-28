@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Navbar() {
+
+  const [open, setOpen] = useState(false);
   return (
     <div className="w-full h-full">
       <header className="flex justify-between items-center text-black bg-white drop-shadow-md py-4 px-2 md:px-12">
@@ -14,9 +16,9 @@ function Navbar() {
             <span className="text-sky-600">XERO</span>
             <span className="text-slate-700">FY</span>
           </h1>
-        </div>
-
-        <button
+        </div><div className="relative">
+          <button
+        onClick={()=> setOpen(!open)}
           className="rounded-full hover:bg-gray-200 transition duration-300"
           aria-label="Profile"
         >
@@ -33,6 +35,17 @@ function Navbar() {
             />
           </svg>
         </button>
+        {open && (
+          <div className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-lg overflow-hidden z-50">
+            <button className="block px-4 py-2 text-left hover:bg-gray-100 w-full">My Orders</button>
+            <button className="block px-4 py-2 text-left hover:bg-gray-100 w-full">Track Order</button>
+            <button className="block px-4 py-2 text-left hover:bg-gray-100 w-full">Settings</button>
+            <button className="block px-4 py-2 text-left hover:bg-gray-100 w-full">Upload File</button>
+            <button className="block px-4 py-2 text-left hover:bg-gray-100 w-full">Billing History</button>
+            <button className="block px-4 py-2 text-red-600 hover:bg-red-50 w-full">Logout</button>
+          </div>
+        )}
+        </div>
       </header>
     </div>
   );

@@ -260,7 +260,7 @@ function Option() {
             <option>10 Copies</option>
           </select>
         </div>
-        <div className="flex justify-between mt-6">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 mt-4">
           <button
             onClick={() => navigate(-1)}
             className="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700"

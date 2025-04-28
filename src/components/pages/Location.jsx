@@ -5,6 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 function Location() {
   const navigate = useNavigate();
 
+  navigate("/payment")
+
   return (
     <div>
       <Navbar />
@@ -134,17 +136,18 @@ function Location() {
               <span className="text-sky-600 font-bold text-lg">Rs.25</span>
             </div>
           </div>
-          <div className="flex justify-between mt-6">
+          <div className="flex flex-col sm:flex-row justify-between gap-3 mt-4">
             <button
               onClick={() => navigate(-1)}
               className="px-4 py-2 rounded bg-gray-100 hover:bg-gray-200 text-gray-700"
             >
               Back
             </button>
-            <button className="px-4 py-2 rounded text-white transition bg-blue-400 hover:bg-blue-500">
+            <button
+            onClick={()=> navigate("/payment")} className="px-4 py-2 rounded text-white transition bg-blue-400 hover:bg-blue-500">
               Next
             </button>
-          </div>
+          </div> 
         </div>
       </div>
     </div>

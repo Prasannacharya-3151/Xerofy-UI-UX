@@ -1,7 +1,12 @@
 import React from "react";
-import Navbar from "./Header/Navbar";
+import Navbar from "../Header/Navbar";
+import {useNavigate , Link} from "react-router-dom";
 
 function Payment() {
+
+  const navigate = useNavigate()
+
+  navigate()
   return (
     <div>
       <Navbar />
@@ -78,12 +83,32 @@ function Payment() {
             </div>
           </div>
         </div>
-        <div className="mt-8 bg-white rounded-2xl p-4 border border-gray-300 shadow-md">
-
-        </div>
-      </div>
-    </div>
+          <div className="mt-8 flex-col flex items-center justify-center bg-white rounded-2xl p-4 border border-gray-300 shadow-md">
+            
+            <h1 className="text-xl px-3 font-semibold text-gray-400">
+              Total Amount
+              </h1>
+              <div>
+              <h2 className="text-2xl mt-5">Rs.25</h2>
+              </div>
+              <button 
+              onClick={()=> navigate("/confirm")}
+              className="w-100 rounded-lg text-white py-2 px-4 bg-purple-600 hover:bg-purple-700 mt-8 font-semibold">
+                Complete Payment
+              </button>
+              </div>
+              <div className="flex flex-col sm:flex-row justify-between gap-3 mt-4">
+              <button
+              onClick={()=> navigate(-1)}
+              className="rounded py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 mt-6">
+                Back
+                
+              </button>
+              </div>
+              </div>
+              </div>
   );
 }
+import { Form } from "react-router-dom";
 
 export default Payment;
