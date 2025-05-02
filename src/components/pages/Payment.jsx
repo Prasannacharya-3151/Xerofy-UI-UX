@@ -6,7 +6,6 @@ function Payment() {
 
   const navigate = useNavigate()
 
-  navigate()
   return (
     <div>
       <Navbar />
@@ -58,7 +57,7 @@ function Payment() {
           <h3 className="text-xs px-3 font-semibold text-gray-700 mb-1 mt-10">
             Payment method
           </h3>
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-4">
             <div className="px-3 py-3 border rounded-xl border-gray-400 hover:border-sky-500 hover:bg-sky-50">
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-800">Phone Pay</span>
@@ -93,7 +92,7 @@ function Payment() {
               </div>
               <button 
               onClick={()=> navigate("/confirm")}
-              className="w-100 rounded-lg text-white py-2 px-4 bg-purple-600 hover:bg-purple-700 mt-8 font-semibold">
+              className="w-full sm:w-auto rounded py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 mt-2">
                 Complete Payment
               </button>
               </div>
