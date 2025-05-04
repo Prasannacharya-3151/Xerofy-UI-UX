@@ -16,10 +16,11 @@ function Navbar() {
             <span className="text-sky-600">XERO</span>
             <span className="text-slate-700">FY</span>
           </h1>
-        </div><div className="relative">
+        </div>
+        <div className="relative">
           <button
         onClick={()=> setOpen(!open)}
-          className="rounded-full hover:bg-gray-200 transition duration-300"
+          className="rounded-full focus:outline-none focus:ring-3 focus:ring-purple-500 transition-all duration-300 ease-in-out"
           aria-label="Profile"
         >
           <svg

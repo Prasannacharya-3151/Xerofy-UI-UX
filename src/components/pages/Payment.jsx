@@ -92,7 +92,7 @@ function Payment() {
               </div>
               <button 
               onClick={()=> navigate("/confirm")}
-              className="w-full sm:w-auto rounded py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 mt-2">
+              className="w-full sm:w-auto rounded py-2 px-4 text-white bg-purple-600 hover:bg-purple-700 mt-2">
                 Complete Payment
               </button>
               </div>
